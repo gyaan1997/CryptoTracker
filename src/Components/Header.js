@@ -15,10 +15,12 @@ import { CryptoState } from "../CryptoContext";
 const useStyles = makeStyles(() => ({
   title: {
     flex: 1,
-    color: "gold",
+    color: "#ffd700",
     fontFamily: "Montserrat",
-    fontWeight: "bold",
+    fontWeight: "650",
+    fontSize:18,
     cursor: "pointer",
+  
   },
 }));
 
@@ -41,7 +43,7 @@ function Header() {
   });
   return (
     <ThemeProvider theme={darkTheme}>
-      <AppBar color="transparent" position="static">
+      <AppBar color="transparent" position="sticky">
         <Container>
           <Toolbar>
             <Typography onClick={() => history("/")} className={classes.title}>

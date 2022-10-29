@@ -1,6 +1,6 @@
 import "./App.css";
 import React from "react";
-import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Header from "./Components/Header";
 import Homepage from "./Pages/Homepage";
 import Coinpage from "./Pages/Coinpage";
@@ -26,10 +26,11 @@ function App() {
       <Routes>
       
         <Route path="/" element={<Homepage />} />
-        <Route path="/coins" element={<Coinpage />} />
-        <Route path="/" element={<Navigate replace to="/" />} />
-      </Routes>
-      </div>
+        <Route path="/coins/id" element={<Coinpage />} />
+        {/* <Route path="*" element={<Error />} /> */}
+
+     </Routes>
+    </div>
     </BrowserRouter>
   );
 }

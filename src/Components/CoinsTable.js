@@ -52,7 +52,7 @@ function CoinsTable() {
     setCoins(data);
     setLoading(false);
   };
-  console.log(coins);
+  // console.log(coins);
   useEffect(() => {
     fetchCoins();
   }, [currency]);

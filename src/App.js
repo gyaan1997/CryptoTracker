@@ -4,6 +4,8 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Header from "./Components/Header";
 import Homepage from "./Pages/Homepage";
 import Coinpage from "./Pages/Coinpage";
+import Error from "./Pages/Coinpage";
+
 import { makeStyles } from "@material-ui/core";
 
 const useStyles=makeStyles(()=>({
@@ -26,8 +28,8 @@ function App() {
       <Routes>
       
         <Route path="/" element={<Homepage />} />
-        <Route path="/coins/id" element={<Coinpage />} />
-        {/* <Route path="*" element={<Error />} /> */}
+        <Route path="/coins/:id" element={<Coinpage />} />
+        <Route path="*" element={<Error />} />
 
      </Routes>
     </div>

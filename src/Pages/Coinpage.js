@@ -6,8 +6,9 @@ import { SingleCoin } from "../Configuration/Api";
 import { LinearProgress, makeStyles, Typography } from "@material-ui/core";
 import ReactHtmlParser from "react-html-parser";
 import {numbersWithCommas} from "../Components/Carousel";
+import CoinInfo from './CoinInfo';
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles(theme => ({
   container: {
     display: "flex",
     [theme.breakpoints.down("md")]: {
@@ -120,6 +121,7 @@ const Coinpage = () => {
       </div>
 
       {/*chart*/}
+      <CoinInfo coin={coin}/>
     </div>
   );
 };

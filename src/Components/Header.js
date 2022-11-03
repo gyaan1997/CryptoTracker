@@ -47,7 +47,7 @@ function Header() {
         <Container>
           <Toolbar>
             <Typography onClick={() => history("/")} className={classes.title}>
-              CryptoTracker
+              CryptoVerse
             </Typography>
             <Select
               varient="outlined"

@@ -81,7 +81,7 @@ function CoinInfo({ coin }) {
                 }),
                 datasets:[{
                     data:historicalData.map((coin)=>coin[1]),
-                    label:`Price(Past ${days}) in ${currency}`,
+                    label:`Price(Past ${days} days) in ${currency}`,
                     borderColor:"gold"
                 },
             ],
@@ -103,11 +103,11 @@ function CoinInfo({ coin }) {
                 width:"100%"
             }}>
                 {chartDays.map(day=>
-                <selectButton
+                <SelectButton
                 key={day.value}
                 selected={day.value===days}
                 onClick={()=>setDays(day.value)}
-                >{day.label}</selectButton>)}
+                >{day.label}</SelectButton>)}
             </div>
 
           </>

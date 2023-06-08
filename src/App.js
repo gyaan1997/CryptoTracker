@@ -2,11 +2,14 @@ import "./App.css";
 import React from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Header from "./Components/Header";
-import Homepage from "./Pages/Homepage";
-import Coinpage from "./Pages/Coinpage";
-import Error from "./Pages/Coinpage";
-
+// import { Suspense,lazy } from 'react';
 import { makeStyles } from "@material-ui/core";
+import Error from './Pages/Coinpage';
+//Lazy loaded pages
+// const Homepage=lazy(()=>import('./Pages/Homepage'))
+import Homepage from "./Pages/Homepage"
+// const Coinpage=lazy(()=>import('./Pages/Coinpage'))
+import Coinpage from "./Pages/Coinpage"
 
 const useStyles = makeStyles(() => ({
   App: {
@@ -24,9 +27,12 @@ function App() {
       <div className={classes.App}>
         <Header />
         <Routes>
-          <Route path="/" element={<Homepage />} />
-          <Route path="/coins/:id" element={<Coinpage />} />
+           {/* <Suspense fallback={<div>Loading...</div>}> */}
+           <Route path="/" element={<Homepage />} />
+           <Route path="/coins/:id" element={<Coinpage />} />
+           {/* </Suspense> */}
           <Route path="*" element={<Error />} />
+       
         </Routes>
       </div>
     </BrowserRouter>
@@ -34,3 +40,4 @@ function App() {
 }
 
 export default App;
+

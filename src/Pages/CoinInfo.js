@@ -1,4 +1,7 @@
-import React, { useState, useEffect } from "react";
+/* eslint-disable react-hooks/exhaustive-deps */
+/* eslint-disable no-unused-vars */
+
+import React, { useState, useEffect,useMemo } from "react";
 import { CryptoState } from "../CryptoContext";
 import { HistoricalChart } from "../Configuration/Api";
 import axios from "axios";
@@ -34,16 +37,21 @@ function CoinInfo({ coin }) {
   const [historicalData, setHistoricalData] = useState();
   const [days, setDays] = useState();
   const { currency } = CryptoState();
-
-  const fetchHistoricalData = async () => {
+  
+  async function fetchHistoricalData() {
     const { data } = await axios.get(HistoricalChart(coin.id, days, currency));
     setHistoricalData(data.prices);
-  };
-  console.log(historicalData);
+  }
+
+  // console.log(historicalData);
+const userObject= useMemo(()=>{
+  return{ currency:currency,days:days};
+  
+},[currency,days])
 
   useEffect(() => {
-    fetchHistoricalData();
-  }, [currency, days]);
+  fetchHistoricalData();
+  },[userObject]);
 
   const darkTheme = createTheme({
     palette: {

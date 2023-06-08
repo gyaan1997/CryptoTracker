@@ -4,11 +4,11 @@ import Carousel from "./Carousel";
 
 const useStyles = makeStyles(() => ({
   banner: {
-    backgroundImage: "url(./banner.png)",
+    backgroundImage: "url(./banner.avif)",
     width: "100%",
   },
   bannercontent: {
-    paddingTop: 25,
+    paddingTop: 20,
     height: 400,
     display: "flex",
     flexDirection: "column",
@@ -50,8 +50,9 @@ function Banner() {
           >
             Get information about your favourite Crypto Currency
           </Typography>
-          <Carousel />
+         
         </div>
+        <Carousel />
       </Container>
     </div>
   );

@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useState, useEffect } from "react";
 import { CryptoState } from "../CryptoContext";
 import axios from "axios";
@@ -70,7 +71,7 @@ function CoinsTable() {
     return coins.filter(
       (coin) =>
         coin.name.toLowerCase().includes(search) ||
-        coin.symbol.toLowerCase().includes(search)
+        coin.symbol.toUpperCase().includes(search)
     );
   };
   const classes=useStyles();
@@ -133,6 +134,7 @@ function CoinsTable() {
                     <TableCell
                     component="th"
                     scope="row"
+                    align="left"
                     style={{
                       display:"flex",
                       gap:15,
@@ -142,6 +144,7 @@ function CoinsTable() {
                     src={row?.image}
                     alt={row?.name}
                     height="50"
+                    width="50"
                     style={{marginBottom:10}}
                     />
                     <div>
@@ -157,7 +160,7 @@ function CoinsTable() {
                   </TableCell>
                   <TableCell align="right"
                   style={{
-                    color:profit>0? "rgb(14,203,129)":"rgb(145,0,0)",
+                    color:profit>0? "rgb(0,255,0)":"rgb(255,0,0)",
                     fontWeight:500,
                   }}>
 

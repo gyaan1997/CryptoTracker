@@ -7,11 +7,13 @@ import {
   Select,
   ThemeProvider,
   createTheme,
+  Button,
 } from "@material-ui/core";
 import React from "react";
 import { makeStyles } from "@material-ui/core";
 import { useNavigate } from "react-router-dom";
 import { CryptoState } from "../CryptoContext";
+import { useAuth0 } from "@auth0/auth0-react";
 const useStyles = makeStyles(() => ({
   title: {
     flex: 1,
@@ -41,6 +43,7 @@ function Header() {
       type: "dark",
     },
   });
+  const { loginWithRedirect,logout ,isAuthenticated,user} = useAuth0();
   return (
     <ThemeProvider theme={darkTheme}>
       <AppBar color="transparent" position="sticky">
@@ -68,6 +71,15 @@ function Header() {
                value={"INR"}>INR</MenuItem>
 
             </Select>
+            {isAuthenticated && <p>{user.name}</p>}
+            {isAuthenticated?
+            
+<Button variant="contained" color="primary" onClick={() => logout({ logoutParams: { returnTo: window.location.origin } })}>
+      Log Out
+      </Button>:<Button variant="contained" color="primary" onClick={() => loginWithRedirect()}>
+            Log In
+</Button>
+}
           </Toolbar>
         </Container>
       </AppBar>

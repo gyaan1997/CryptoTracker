@@ -73,7 +73,8 @@ const Coinpage = () => {
 
   useEffect(() => {
     fetchCoin();
-  }, []);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [id]);
 
   const classes = useStyles();
   if(!coin) return<LinearProgress style={{backgroundColor:"gold"}}/>
@@ -85,6 +86,8 @@ const Coinpage = () => {
           src={coin?.image.large}
           alt={coin?.name}
           height="200"
+          width="200"
+
           style={{ marginBottom: 20 }}
         />
         <Typography variant="h3" className={classes.heading}>

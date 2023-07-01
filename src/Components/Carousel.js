@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { makeStyles } from "@material-ui/core";
@@ -37,7 +38,7 @@ function Carousel() {
   useEffect(() => {
     fetchTrendingCoins();
   }, [currency]);
-  // console.log(Trending)
+  
   const classes = useStyles();
 
   const items = Trending.map((coin) => {

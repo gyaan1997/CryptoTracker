@@ -2,7 +2,9 @@ import React, { useState, useEffect } from "react";
 import { CryptoState } from "../CryptoContext";
 import { HistoricalChart } from "../Configuration/Api";
 import axios from "axios";
+// eslint-disable-next-line no-unused-vars
 import { Chart as ChartJS } from 'chart.js/auto'
+// eslint-disable-next-line no-unused-vars
 import { Chart,Line }            from 'react-chartjs-2'
 import {
   createTheme,
@@ -43,6 +45,7 @@ function CoinInfo({ coin }) {
 
   useEffect(() => {
     fetchHistoricalData();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [currency, days]);
 
   const darkTheme = createTheme({
